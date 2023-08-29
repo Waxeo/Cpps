@@ -49,3 +49,6 @@ int	main(int ac, char **av)
 	std::cerr << "Wrong Input" << std::endl;
 	return (-1);
 }
+
+
+//remettre le pointeur apres le morceau change pour eviter une bi sur un changement par ce qui etait deja 

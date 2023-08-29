@@ -33,62 +33,105 @@ int	PhoneBook::add_new(int index)
 
 //	first name	
 	std::getline(std::cin, first_name);
+	if (std::cin.eof())
+	{
+		std::cout << std::endl;
+		return index;
+	}
 	while (first_name.empty())
 	{
 		std::cout << RED << "Error encontred : Empty Field, try again" << RESET << std::endl;
 		std::cout << YELLOW << "Please enter your first name : " << RESET;
-		std::getline(std::cin, first_name);	
+		std::getline(std::cin, first_name);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			return index;
+		}
 	}
-	if (std::cin.eof())
-		return index;
 
 //	last name
 	std::cout << YELLOW << "Enter your last name : " << RESET;
 	std::getline(std::cin, last_name);
+	if (std::cin.eof())
+	{
+		std::cout << std::endl;
+		return index;
+	}
 	while (last_name.empty())
 	{
 		std::cout << RED << "Error encontred : Empty Field, try again" << RESET << std::endl;
 		std::cout << YELLOW << "Enter your last name : " << RESET;
-		std::getline(std::cin, last_name);	
+		std::getline(std::cin, last_name);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			return index;
+		}	
 	}
-	if (std::cin.eof())
-		return index;
+
 
 //	nickname
 	std::cout << YELLOW << "Choose a nickname : " << RESET;
 	std::getline(std::cin, nickname);
+	if (std::cin.eof())
+	{
+		std::cout << std::endl;
+		return index;
+	}
 	while (nickname.empty())
 	{
 		std::cout << RED << "Error encontred : Empty Field, try again" << RESET << std::endl;
 		std::cout << YELLOW << "Choose a nickname : " << RESET;
-		std::getline(std::cin, nickname);	
+		std::getline(std::cin, nickname);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			return index;
+		}
 	}
-	if (std::cin.eof())
-		return index;
+
 
 //	phonenumber
 	std::cout << YELLOW << "Enter your phone number : " << RESET;
 	std::getline(std::cin, phone_number);
+	if (std::cin.eof())
+	{
+		std::cout << std::endl;
+		return index;
+	}
 	while (!isNumeric(phone_number))
 	{
 		std::cout << RED << "Non-Numeric phone number or empty field, try again" << RESET << std::endl;
 		std::cout << YELLOW << "Enter your phone number : " << RESET;
-		std::getline(std::cin, phone_number);	
+		std::getline(std::cin, phone_number);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			return index;
+		}	
 	}
-	if (std::cin.eof())
-		return index;
+
 	
 //	darkest secret
 	std::cout << YELLOW << "Tell me your darkest secret : " << RESET;
 	std::getline(std::cin, darkest_secret);
+	if (std::cin.eof())
+	{
+		std::cout << std::endl;
+		return index;
+	}
 	while (darkest_secret.empty())
 	{
 		std::cout << RED << "Error encontred : Empty Field, try again" << RESET << std::endl;
 		std::cout << YELLOW << "Tell me your darkest secret : " << RESET;
-		std::getline(std::cin, darkest_secret);	
+		std::getline(std::cin, darkest_secret);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			return index;
+		}
 	}
-	if (std::cin.eof())
-		return index;
 
 	_contacts[index % 8].setprivate(first_name, last_name, nickname, phone_number, darkest_secret);
 	index++;
@@ -125,13 +168,21 @@ void	PhoneBook::search(int index) const
 	std::cout << "Please select contact index : ";
 	std::getline(std::cin, user);
 	if (std::cin.eof())
+	{
+		std::cout << std::endl;
 		return ;
+	}
 
 	while (!isNumeric(user))
 	{
 		std::cout << RED << "Non-Numeric index, try again" << RESET << std::endl;
 		std::cout << "Please select contact index : ";
-		std::getline(std::cin, user);	
+		std::getline(std::cin, user);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			return ;
+		}
 	}
 	i = stringToInt(user);
 	if (i < 0 || i >= index)
