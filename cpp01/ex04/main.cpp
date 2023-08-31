@@ -30,11 +30,14 @@ int	main(int ac, char **av)
 		std::string str = av[2];
 		std::string nstr = av[3];
 		std::string	copy;//copy from file to .replace
+		int			i;
 		while (std::getline(ifs, copy))
 		{
+			i = 0;
 			while (1)
 			{
-				std::size_t found = copy.find(av[2], 0);
+				std::size_t found = copy.find(av[2], i);
+				i = (int)found + nstr.size();
 				if (found == std::string::npos)
 					break ;
 				copy.erase(found, str.size());
