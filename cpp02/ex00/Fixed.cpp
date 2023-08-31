@@ -1,6 +1,6 @@
 #include "Fixed.Class.hpp"
 
-Fixed::Fixed( void ) : _RawBits(0)
+Fixed::Fixed( void ) : _Nb(0)
 {
 	std::cout << "Default constructor called" << std::endl;
     return ;
@@ -26,7 +26,7 @@ Fixed	&	Fixed::operator=( Fixed const &rhs )
 	std::cout << "Assignement operator called" << std::endl;
 	
 	if ( this != &rhs )
-		this->_RawBits = rhs.getRawBits();
+		this->_Nb = rhs.getRawBits();
 
 	return *this;
 }
@@ -36,14 +36,14 @@ int Fixed::getRawBits( void ) const
 {
 	std::cout << "Geter called" << std::endl;
 
-	return this->_RawBits;
+	return this->_Nb;
 }
 
 void Fixed::setRawBits( int const raw )
 {
 	std::cout << "Seter called" << std::endl;
 
-	this->_RawBits = raw;
+	this->_Nb = raw;
 
 	return ;
 }

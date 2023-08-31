@@ -28,7 +28,7 @@ class Fixed
 
 	private:
 
-		int	_RawBits;
+		int	_Nb;
 		const	static	int	_BitsNb = 8;
 
 };
