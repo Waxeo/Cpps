@@ -50,6 +50,99 @@ Fixed	&	Fixed::operator=( Fixed const &rhs )
 	return *this;
 }
 
+Fixed	&	Fixed::operator+( Fixed const &rhs )
+{
+	std::cout << "+ Arithmetic operator called" << std::endl;
+	
+	this->_Nb = (this->_Nb + rhs.getRawBits()) >> this->_BitsNb;
+
+	return *this;
+}
+
+Fixed	&	Fixed::operator-( Fixed const &rhs )
+{
+	std::cout << "- Arithmetic operator called" << std::endl;
+	
+	this->_Nb = (this->_Nb - rhs.getRawBits()) >> this->_BitsNb;
+
+	return *this;
+}
+
+Fixed	&	Fixed::operator*( Fixed const &rhs )
+{
+	std::cout << "* Arithmetic operator called" << std::endl;
+	
+	this->_Nb = (this->_Nb * rhs.getRawBits()) >> this->_BitsNb;
+
+	return *this;
+}
+
+Fixed	&	Fixed::operator/( Fixed const &rhs )
+{
+	std::cout << "/ Arithmetic operator called" << std::endl;
+	
+	this->_Nb = (this->_Nb << this->_BitsNb) / rhs.getRawBits();
+
+	return *this;
+}
+
+Fixed	&	Fixed::operator++( Fixed const &rhs )
+{
+	std::cout << "Increase operator called" << std::endl;
+	
+
+}
+
+Fixed	&	Fixed::operator++( Fixed const &rhs )
+{
+	std::cout << "Post-increase operator called" << std::endl;
+}
+
+Fixed	&	Fixed::operator--( Fixed const &rhs )
+{
+	std::cout << "Decrease operator called" << std::endl;
+	
+
+}
+
+Fixed	&	Fixed::operator--( Fixed const &rhs )
+{
+	std::cout << "Post-decrease operator called" << std::endl;
+}
+
+
+bool	Fixed::operator>( Fixed const &rhs )
+{
+	return this->_Nb > rhs.getRawBits();
+}
+
+bool	Fixed::operator<( Fixed const &rhs )
+{
+	return this->_Nb < rhs.getRawBits();
+}
+
+bool	Fixed::operator>=( Fixed const &rhs )
+{
+	return this->_Nb >= rhs.getRawBits();
+}
+
+bool	Fixed::operator<=( Fixed const &rhs )
+{
+	return this->_Nb <= rhs.getRawBits();
+}
+
+bool	Fixed::operator==( Fixed const &rhs )
+{
+	return this->_Nb == rhs.getRawBits();
+}
+
+bool	Fixed::operator!=( Fixed const &rhs )
+{
+	return this->_Nb != rhs.getRawBits();
+}
+
+
+
 std::ostream	&	operator<<( std::ostream & o, Fixed const &rhs)
 {
 	o << rhs.toFloat();

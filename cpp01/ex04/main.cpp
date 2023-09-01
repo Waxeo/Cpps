@@ -28,6 +28,11 @@ int	main(int ac, char **av)
 
 		/*Copy, Replace n Add*/
 		std::string str = av[2];
+		if (str.empty())
+		{
+			std::cout << "Empty ToFind string" << std::endl;
+			return (-1);
+		}
 		std::string nstr = av[3];
 		std::string	copy;//copy from file to .replace
 		int			i;
@@ -52,6 +57,3 @@ int	main(int ac, char **av)
 	std::cerr << "Wrong Input" << std::endl;
 	return (-1);
 }
-
-
-//remettre le pointeur apres le morceau change pour eviter une bi sur un changement par ce qui etait deja 
