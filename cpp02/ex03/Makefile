@@ -1,7 +1,7 @@
 # Variables
 
-NAME	=	Fixed
-PROJECT =	Cpp02 - Ex02
+NAME	=	Bsp
+PROJECT =	Cpp02 - Ex03
 CC		=	c++
 FLAG	=	-Wall -Wextra -Werror -std=c++98 -g3
 
