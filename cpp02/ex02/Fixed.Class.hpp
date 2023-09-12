@@ -24,25 +24,23 @@ class Fixed
 		Fixed( Fixed const &src );
 		~Fixed( void );
 
-		Fixed	&	operator=( Fixed const &rhs );
-		Fixed	&	operator+( Fixed const &rhs );
-		Fixed	&	operator-( Fixed const &rhs );
-		Fixed	&	operator*( Fixed const &rhs );
-		Fixed	&	operator/( Fixed const &rhs );
+		Fixed	&operator=( Fixed const &rhs );
+		Fixed	operator+(Fixed const &rhs) const;
+   		Fixed	operator-(Fixed const &rhs) const;
+    	Fixed 	operator*(Fixed const &rhs) const;
+   		Fixed	operator/(Fixed const &rhs) const;
 
-		bool	operator>( Fixed const &rhs );
-		bool	operator<( Fixed const &rhs );
-		bool	operator>=( Fixed const &rhs );
-		bool	operator<=( Fixed const &rhs );
-		bool	operator==( Fixed const &rhs );
-		bool	operator!=( Fixed const &rhs );
+		Fixed	&operator++( void );
+   		Fixed   operator++( int );
+    	Fixed	&operator--( void );
+    	Fixed  	operator--( int );
 
-		Fixed	&	Fixed::operator++( Fixed const &rhs );
-		Fixed	&	Fixed::operator++( Fixed const &rhs );
-		Fixed	&	Fixed::operator--( Fixed const &rhs );
-		Fixed	&	Fixed::operator--( Fixed const &rhs );
-
-
+		bool	operator>( Fixed const &rhs ) const;
+		bool	operator<( Fixed const &rhs ) const;
+		bool	operator>=( Fixed const &rhs ) const;
+		bool	operator<=( Fixed const &rhs ) const;
+		bool	operator==( Fixed const &rhs ) const;
+		bool	operator!=( Fixed const &rhs ) const;
 
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
@@ -50,9 +48,14 @@ class Fixed
 		float toFloat( void ) const;
 		int toInt( void ) const;
 
+		static Fixed& min( Fixed &a, Fixed &b );
+		static const Fixed& min( const Fixed &a, const Fixed &b );
+   		static Fixed& max( Fixed &a, Fixed &b );
+		static const Fixed& max( const Fixed &a, const Fixed &b );
+
 	private:
 
-		int	_Nb;
+		int	_FixedPoint;
 		const	static	int	_BitsNb = 8;
 
 };
