@@ -33,19 +33,9 @@ Point	&	Point::operator=( Point const &src )
 	
 	if ( this != &src )
     {
-		this->_x = src.getx();
-		this->_y = src.gety();
+		this->_x = src._x;
+		this->_y = src._y;
     }
 
 	return *this;
-}
-
-const   Fixed Point::getx( void ) const
-{
-    return this->_x;
-}
-
-const   Fixed Point::gety( void ) const
-{
-    return this->_y;
 }
