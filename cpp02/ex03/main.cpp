@@ -1,4 +1,4 @@
-#include "Fixed.Class.hpp"
+#include "Point.Class.hpp"
 
 int main( void )
 {

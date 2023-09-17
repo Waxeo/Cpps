@@ -33,8 +33,13 @@ Point	&	Point::operator=( Point const &src )
 	
 	if ( this != &src )
     {
+<<<<<<< HEAD
 		(Fixed) this->_x = src._x;
 		(Fixed) this->_y = src._y;
+=======
+		this->_x = src._x;
+		this->_y = src._y;
+>>>>>>> 82f4e30a1b905ba87ca1a3274c6925d0151a535a
     }
 
 	return *this;
