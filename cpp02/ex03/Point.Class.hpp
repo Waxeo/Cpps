@@ -1,3 +1,6 @@
+#ifndef POINT_CLASS_HPP
+# define POINT_CLASS_HPP
+
 #include "Fixed.Class.hpp"
 
 class Point
@@ -11,17 +14,13 @@ class Point
 
 		Point	&operator=( Point const &src );
 
-        const   Fixed getx( void ) const;
-		void setx( int const setter );
-
-        const   Fixed gety( void ) const;
-		void sety( int const setter );
-
-
-
 	private:
 
         const Fixed   _x;
         const Fixed   _y;
 
 };
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);
+
+#endif

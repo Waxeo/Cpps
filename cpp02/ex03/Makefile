@@ -23,7 +23,7 @@ WHITE		= \033[0;97m
 
 # Sources
 
-FILES	=	main.cpp Fixed.cpp
+FILES	=	main.cpp Fixed.cpp Point.cpp
 
 ###
 
