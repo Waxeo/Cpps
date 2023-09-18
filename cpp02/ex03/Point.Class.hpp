@@ -14,6 +14,13 @@ class Point
 
 		Point	&operator=( Point const &src );
 
+		float getX( void ) const;
+		float getY( void ) const;
+
+		void setX( Fixed vec );
+		void setY( Fixed vec );
+
+
 	private:
 
         const Fixed   _x;

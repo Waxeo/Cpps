@@ -33,14 +33,33 @@ Point	&	Point::operator=( Point const &src )
 	
 	if ( this != &src )
     {
-<<<<<<< HEAD
 		(Fixed) this->_x = src._x;
 		(Fixed) this->_y = src._y;
-=======
-		this->_x = src._x;
-		this->_y = src._y;
->>>>>>> 82f4e30a1b905ba87ca1a3274c6925d0151a535a
     }
 
 	return *this;
+}
+
+float Point::getX( void ) const
+{
+	return this->_x.toFloat();
+}
+
+float Point::getY( void ) const
+{
+	return this->_y.toFloat();
+}
+
+void Point::setX( Fixed vec )
+{
+	std::cout << "vec = " << vec << std::endl;
+	(Fixed) this->_x = vec;
+	std::cout << "x = " << this->_x << std::endl;
+	return ;
+}
+
+void Point::setY( Fixed vec )
+{
+	(Fixed) this->_y = vec;
+	return ;
 }

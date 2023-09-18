@@ -23,11 +23,7 @@ WHITE		= \033[0;97m
 
 # Sources
 
-<<<<<<< HEAD
-FILES	=	main.cpp Fixed.cpp Point.cpp
-=======
-FILES	=	main.cpp Fixed.cpp Point.cpp 
->>>>>>> 82f4e30a1b905ba87ca1a3274c6925d0151a535a
+FILES	=	main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 ###
 
