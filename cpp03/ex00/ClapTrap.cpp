@@ -77,7 +77,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	}
 	if (this->_HitPoints >= 10)
 	{
-		std::cout << GREEN << "ClapTrap " << this->_Name << "Health points are already at max" << RESET << std::endl;
+		std::cout << GREEN << "ClapTrap " << this->_Name << " Health points are already at max" << RESET << std::endl;
 		return ;
 	}
 	else if (this->_EnergyPoints > 0)
@@ -98,3 +98,9 @@ std::string		ClapTrap::getName( void )
 {
 	return this->_Name;
 }
+
+int		ClapTrap::getDamage( void )
+{
+	return this->_AttackDamage;
+}
+

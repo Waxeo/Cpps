@@ -23,7 +23,7 @@ WHITE		= \033[0;97m
 
 # Sources
 
-FILES	=	main.cpp ClapTrap.cpp
+FILES	=	main.cpp ClapTrap.cpp ScavTrap.cpp
 
 ###
 
@@ -34,7 +34,7 @@ $(OBJF)	:
 
 all		:	$(NAME)
 
-$(NAME)	:	$(FILES) ClapTrap.Class.hpp ./Makefile
+$(NAME)	:	$(FILES) ClapTrap.Class.hpp ScavTrap.Class.hpp ./Makefile
 	@echo "\n"
 	$(CC) $(FLAG) $(FILES) -o $(NAME)
 	@echo "$(YELLOW)$(PROJECT) compiled!$(DEF_COLOR)"

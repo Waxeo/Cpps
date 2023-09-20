@@ -6,7 +6,7 @@ int main ( void )
     ClapTrap second("Bob");
 
     first.attack(second.getName());
-    second.takeDamage(2);
+    second.takeDamage(first.getDamage());
 
     second.beRepaired(1);
 
