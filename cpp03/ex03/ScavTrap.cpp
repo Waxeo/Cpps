@@ -1,3 +1,5 @@
+#include "ClapTrap.Class.hpp"
+#include "FragTrap.Class.hpp"
 #include "ScavTrap.Class.hpp"
 
 ScavTrap::ScavTrap( std::string name ) : ClapTrap(name)

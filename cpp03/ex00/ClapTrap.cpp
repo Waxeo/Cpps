@@ -1,8 +1,14 @@
 #include "ClapTrap.Class.hpp"
 
-ClapTrap::ClapTrap( std::string name ) : _Name(name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
+ClapTrap::ClapTrap( void )
 {
 	// std::cout << "Default constructor called" << std::endl;
+	return ;
+}
+
+ClapTrap::ClapTrap( std::string name ) : _Name(name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
+{
+	// std::cout << "ClapTrap constructor called" << std::endl;
 	return ;
 }
 
@@ -16,7 +22,7 @@ ClapTrap::ClapTrap( ClapTrap &src )
 
 ClapTrap::~ClapTrap( void )
 {
-	// std::cout << "Destructor constructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 	return ;
 }
 
@@ -62,7 +68,10 @@ void ClapTrap::takeDamage(unsigned int amount)
 		std::cout << "Claptrap " << this->_Name << " is already dead" << std::endl; ;
 		return ;
 	}
-	this->_HitPoints -= amount;
+	if (this->_HitPoints - amount < 0)
+		this->_HitPoints = 0;
+	else
+		this->_HitPoints -= amount;
 
 	std::cout << this->_HitPoints << " Health points remaining for " << this->_Name << std::endl;
 	return ;
@@ -75,12 +84,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "Claptrap " << this->_Name << " is dead." << std::endl;
 		return ;
 	}
-	if (this->_HitPoints >= 10)
-	{
-		std::cout << GREEN << "ClapTrap " << this->_Name << " Health points are already at max" << RESET << std::endl;
-		return ;
-	}
-	else if (this->_EnergyPoints > 0)
+	if (this->_EnergyPoints > 0)
 	{
 		this->_HitPoints += amount;
 		std::cout << GREEN << "ClapTrap " << this->_Name << " repared " << amount << " Health points" << RESET << std::endl;

@@ -37,7 +37,8 @@ class ClapTrap
 		int	_HitPoints;
 		int	_EnergyPoints;
 		int	_AttackDamage;
-
+		
+		ClapTrap( void );
 };
 
 /*From now on, all your classes must be designed
