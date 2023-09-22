@@ -25,12 +25,13 @@ class Animal
 
 		Animal	&operator=( Animal const &src );
 
-		virtual void makeSound( void );
+		virtual void makeSound( void ) const;
 
+		std::string getType() const;
+		
 	protected:
 
 		std::string	_Type;
-
 
 };
 

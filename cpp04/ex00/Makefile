@@ -1,7 +1,7 @@
 # Variables
 
 NAME	=	Fragtrap
-PROJECT =	Cpp03 - Ex02
+PROJECT =	Cpp04 - Ex00
 CC		=	c++
 FLAG	=	-Wall -Wextra -Werror -std=c++98 -g3
 
@@ -23,7 +23,8 @@ WHITE		= \033[0;97m
 
 # Sources
 
-FILES	=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+FILES	=	main.cpp Animal.cpp Dog.cpp Cat.cpp \
+			WrongAnimal.cpp WrongCat.cpp
 
 ###
 
@@ -34,7 +35,7 @@ $(OBJF)	:
 
 all		:	$(NAME)
 
-$(NAME)	:	$(FILES) ClapTrap.Class.hpp ScavTrap.Class.hpp FragTrap.Class.hpp ./Makefile
+$(NAME)	:	$(FILES) Cat.Class.hpp Dog.Class.hpp Animal.Class.hpp WrongAnimal.Class.hpp ./Makefile
 	@echo "\n"
 	$(CC) $(FLAG) $(FILES) -o $(NAME)
 	@echo "$(YELLOW)$(PROJECT) compiled!$(DEF_COLOR)"

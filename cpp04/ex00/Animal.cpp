@@ -36,9 +36,15 @@ Animal	&Animal::operator=( Animal const &src )
 	return *this;
 }
 
-void	Animal::makeSound( void )
+void	Animal::makeSound( void ) const
+
 {
 	std::cout << "oh jsuis bieng" << std::endl;
 
 	return ;
+}
+
+std::string 	Animal::getType() const
+{
+	return this->_Type;
 }

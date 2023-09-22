@@ -13,11 +13,7 @@ class Cat : public Animal
 	    
 		Cat	&operator=( Cat const &src );
 
-		virtual void makeSound( void );
-
-    private :
-
-        std::string _Type;
+		virtual void makeSound( void ) const;
 };
 
 #endif

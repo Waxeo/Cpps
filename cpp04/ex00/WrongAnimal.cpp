@@ -1,46 +1,44 @@
-#include "ClapTrap.Class.hpp"
-#include "FragTrap.Class.hpp"
-#include "ScavTrap.Class.hpp"
+#include "WrongAnimal.Class.hpp"
 
-ScavTrap::ScavTrap( std::string name ) : ClapTrap(name)
+WrongAnimal::WrongAnimal( void )
 {
-	std::cout << "ScavTrap constructor called" << std::endl;
+	std::cout << "Default constructor called" << std::endl;
+	return ;
+}
 
-	this->_HitPoints = 100;
-	this->_EnergyPoints = 50;
-	this->_AttackDamage = 20;
+WrongAnimal::WrongAnimal( std::string type ) : _Type(type)
+{
+	std::cout << "WrongAnimal constructor called" << std::endl;
+	return ;
+}
+
+WrongAnimal::WrongAnimal( WrongAnimal &src )
+{
+	// std::cout << "Copy constructor called" << std::endl;
+	*this = src;
 
 	return ;
 }
 
-ScavTrap::~ScavTrap( void )
+WrongAnimal::~WrongAnimal( void )
 {
-	std::cout << "ScavTrap destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 	return ;
 }
 
-void ScavTrap::attack(const std::string& target)
+WrongAnimal	&WrongAnimal::operator=( WrongAnimal const &src )
 {
-	if (this->_HitPoints == 0)
-	{
-		std::cout << "ScavTrap " << this->_Name << " is dead." << std::endl; ;
-		return ;
-	}
-	if (this->_EnergyPoints > 0)
-	{
-		std::cout << BLUE << "ScavTrap " << this->_Name << " attacks " << target << ", causing " << this->_AttackDamage << " points of damage!" << RESET << std::endl;
-		this->_EnergyPoints--;
-	}
-	else
-		std::cout << RED << "ScavTrap " << this->_Name << " needs energy to do an action" << RESET << std::endl;
+	// std::cout << "Assignement operator called" << std::endl;
+	
+	if ( this != &src )
+		this->_Type = src._Type;
 
-	std::cout << this->_EnergyPoints << " Energy points remaining for " << this->_Name << std::endl;
-
-	return ;
+	return *this;
 }
 
-void ScavTrap::guardGate( void )
+void	WrongAnimal::makeSound( void )
 {
-	std::cout << YELLOW << "ScavTrap is now in Gate keeper mode." << RESET << std::endl;
+	std::cout << "oh jsuis pas bieng" << std::endl;
+
 	return ;
 }

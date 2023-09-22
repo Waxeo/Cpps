@@ -13,11 +13,7 @@ class Dog : public Animal
         
 		Dog	&operator=( Dog const &src );
 
-		virtual void makeSound( void );
-
-    private:
-
-        std::string _Type;
+		virtual void makeSound( void ) const;
 };
 
 #endif

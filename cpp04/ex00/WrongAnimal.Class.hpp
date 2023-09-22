@@ -16,15 +16,20 @@
 
 class WrongAnimal
 {
-    public:
+	public:
 
-        WrongAnimal( std::string name );
-        ~WrongAnimal( void );
-	    void attack(const std::string& target);
-        void guardGate( void );
+		WrongAnimal( void );
+		WrongAnimal( std::string name );
+		WrongAnimal( WrongAnimal &src );
+		~WrongAnimal( void );
 
-    private :
-        WrongAnimal( void );
+		WrongAnimal	&operator=( WrongAnimal const &src );
+
+		virtual void makeSound( void );
+
+	protected:
+
+		std::string	_Type;
+
 };
-
 #endif
