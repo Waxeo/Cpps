@@ -247,7 +247,13 @@ puis effectuer une conversion explicite.
 Exemple : float floatNumber = static_cast<float>(fixedPointNumber) / (1 << 8);
 convertira fixedPointNumber en floatNumber. Dans cet exemple, nous décalons la virgule de 8 positions
 vers la gauche avant la conversion en float.
+Lorsque vous effectuez un décalage binaire vers la gauche de 8 positions (1 << 8), vous multipliez effectivement par 2 à la puissance 8, ce qui est égal à 256. Donc, 1 << 8 est égal à 256.
 
+En divisant par 1 << 8, vous ramenez votre nombre représenté 
+en virgule fixe à sa partie entière. Puisque vous aviez multiplié 
+par 256 précédemment (lorsque vous avez fait la conversion),
+diviser par 256 annule cet effet et vous donne la partie entière
+du nombre original.
 
 
 Conversion de nombre à virgule flottante vers nombre à virgule fixe :

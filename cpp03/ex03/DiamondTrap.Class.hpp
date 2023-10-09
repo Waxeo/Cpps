@@ -12,11 +12,17 @@ class DiamondTrap : public ScavTrap, public FragTrap
         DiamondTrap( std::string name );
         ~DiamondTrap( void );
 	    void attack(const std::string& target);
-        void highFivesGuys(void);
+
+        std::string getName( void );
+		int         getDamage( void );
 
     private :
 
 		std::string _Name;
+        int	_HitPoints;
+		int	_EnergyPoints;
+		int	_AttackDamage;
+
         DiamondTrap( void );
 };
 

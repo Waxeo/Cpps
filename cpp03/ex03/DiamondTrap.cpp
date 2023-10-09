@@ -3,11 +3,10 @@
 #include "ScavTrap.Class.hpp"
 #include "DiamondTrap.Class.hpp"
 
-DiamondTrap::DiamondTrap( std::string name )
+DiamondTrap::DiamondTrap( std::string name ) :  ScavTrap(name), FragTrap(name), _Name(name + "_clap_name")
 {
 	std::cout << "DiamondTrap constructor called" << std::endl;
 
-	this->_Name = ClapTrap::getName() + "_clap_name";
 	this->_HitPoints = FragTrap::_HitPoints;
 	this->_EnergyPoints = ScavTrap::_EnergyPoints;
 	this->_AttackDamage = FragTrap::_AttackDamage;
@@ -40,8 +39,12 @@ void DiamondTrap::attack(const std::string& target)
 	return ;
 }
 
-void DiamondTrap::guardGate( void )
+std::string		DiamondTrap::getName( void )
 {
-	std::cout << YELLOW << "DiamondTrap is now in Gate keeper mode." << RESET << std::endl;
-	return ;
+	return this->_Name;
+}
+
+int		DiamondTrap::getDamage( void )
+{
+	return this->_AttackDamage;
 }
