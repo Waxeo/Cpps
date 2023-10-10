@@ -3,17 +3,17 @@
 
 #include "ClapTrap.Class.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
     public:
 
+        FragTrap( void );
         FragTrap( std::string name );
+        FragTrap( FragTrap &src );
         ~FragTrap( void );
+
 	    void attack(const std::string& target);
         void highFivesGuys(void);
-
-    private :
-        FragTrap( void );
 };
 
 #endif

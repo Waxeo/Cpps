@@ -13,6 +13,14 @@ ScavTrap::ScavTrap( std::string name ) : ClapTrap(name)
 	return ;
 }
 
+ScavTrap::ScavTrap( ScavTrap &src )
+{
+	// std::cout << "Copy constructor called" << std::endl;
+	*this = src;
+
+	return ;
+}
+
 ScavTrap::~ScavTrap( void )
 {
 	std::cout << "ScavTrap destructor called" << std::endl;

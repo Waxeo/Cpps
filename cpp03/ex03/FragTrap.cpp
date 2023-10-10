@@ -2,6 +2,12 @@
 #include "FragTrap.Class.hpp"
 #include "ScavTrap.Class.hpp"
 
+FragTrap::FragTrap( void )
+{
+	std::cout << "FragTrap's default constructor called" << std::endl;
+	return ;
+}
+
 FragTrap::FragTrap( std::string name ) : ClapTrap(name)
 {
 	std::cout << "FragTrap constructor called" << std::endl;
@@ -9,6 +15,14 @@ FragTrap::FragTrap( std::string name ) : ClapTrap(name)
 	this->_HitPoints = 100;
 	this->_EnergyPoints = 100;
 	this->_AttackDamage = 30;
+
+	return ;
+}
+
+FragTrap::FragTrap( FragTrap &src )
+{
+	// std::cout << "Copy constructor called" << std::endl;
+	*this = src;
 
 	return ;
 }

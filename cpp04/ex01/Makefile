@@ -1,7 +1,7 @@
 # Variables
 
-NAME	=	Polymorphisme
-PROJECT =	Cpp04 - Ex00
+NAME	=	Brain
+PROJECT =	Cpp04 - Ex01
 CC		=	c++
 FLAG	=	-Wall -Wextra -Werror -std=c++98 -g3
 

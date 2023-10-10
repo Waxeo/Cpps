@@ -2,6 +2,7 @@
 # define DOG_CLASS_HPP
 
 #include "Animal.Class.hpp"
+#include "Brain.Class.hpp"
 
 class Dog : public Animal
 {
@@ -14,6 +15,10 @@ class Dog : public Animal
 		Dog	&operator=( Dog const &src );
 
 		virtual void makeSound( void ) const;
+    
+    private:
+
+        Brain   *_Dog_Brain;
 };
 
 #endif

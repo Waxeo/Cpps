@@ -18,6 +18,7 @@ class ClapTrap
 {
 	public:
 
+		ClapTrap( void );
 		ClapTrap( std::string name );
 		ClapTrap( ClapTrap &src );
 		~ClapTrap( void );
@@ -37,10 +38,6 @@ class ClapTrap
 		int	_HitPoints;
 		int	_EnergyPoints;
 		int	_AttackDamage;
-	
-	private :
-		ClapTrap( void );
-
 };
 
 /*From now on, all your classes must be designed
