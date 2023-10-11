@@ -5,6 +5,11 @@
 FragTrap::FragTrap( void )
 {
 	std::cout << "FragTrap's default constructor called" << std::endl;
+	
+	this->_HitPoints = 100;
+	this->_EnergyPoints = 100;
+	this->_AttackDamage = 30;
+
 	return ;
 }
 

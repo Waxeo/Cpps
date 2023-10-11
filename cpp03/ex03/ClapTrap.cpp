@@ -8,7 +8,7 @@ ClapTrap::ClapTrap( void )
 
 ClapTrap::ClapTrap( std::string name ) : _Name(name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0)
 {
-	std::cout << "ClapTrap constructor called" << std::endl;
+	std::cout << BLUE << "ClapTrap constructor called" << RESET << std::endl;
 	return ;
 }
 

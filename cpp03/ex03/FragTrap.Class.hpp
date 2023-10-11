@@ -12,6 +12,11 @@ class FragTrap : virtual public ClapTrap
         FragTrap( FragTrap &src );
         ~FragTrap( void );
 
+        // std::string getName( void );
+        // int	        getHitPoints( void );
+        // int		    getEnergyPoints( void );
+		// int         getDamage( void );
+
 	    void attack(const std::string& target);
         void highFivesGuys(void);
 };

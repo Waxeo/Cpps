@@ -3,13 +3,22 @@
 #include "ScavTrap.Class.hpp"
 #include "DiamondTrap.Class.hpp"
 
-DiamondTrap::DiamondTrap( std::string name ) :  ScavTrap(name), FragTrap(name), _Name(name + "_clap_name")
+DiamondTrap::DiamondTrap( void ) : ScavTrap(), FragTrap()
+{
+	std::cout << "DiamondTrap default constructor called" << std::endl;
+	
+	return ;
+}
+
+DiamondTrap::DiamondTrap( std::string name ) :  ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
 	std::cout << "DiamondTrap constructor called" << std::endl;
 
+	this->_Name = name;
 	this->_HitPoints = FragTrap::_HitPoints;
 	this->_EnergyPoints = ScavTrap::_EnergyPoints;
 	this->_AttackDamage = FragTrap::_AttackDamage;
+
 	return ;
 }
 
@@ -23,7 +32,7 @@ DiamondTrap::DiamondTrap( DiamondTrap &src )
 
 DiamondTrap::~DiamondTrap( void )
 {
-	std::cout << "DiamondTrap destructor called" << std::endl;
+	std::cout << RED << std::endl << "DiamondTrap destructor called" << RESET << std::endl;
 	return ;
 }
 
@@ -39,6 +48,16 @@ std::string		DiamondTrap::getName( void )
 	return this->_Name;
 }
 
+int		DiamondTrap::getHitPoints( void )
+{
+	return this->_HitPoints;
+}
+
+int		DiamondTrap::getEnergyPoints( void )
+{
+	return this->_EnergyPoints;
+}
+
 int		DiamondTrap::getDamage( void )
 {
 	return this->_AttackDamage;
@@ -46,7 +65,7 @@ int		DiamondTrap::getDamage( void )
 
 void DiamondTrap::whoAmI( void )
 {
-	std::cout << "DiamondTrap name is "<< this->_Name << " whereas ClavTrap name is " << ClapTrap::_Name << std::endl;
+	std::cout << GREEN << "DiamondTrap name is "<< this->_Name << " whereas ClavTrap name is " << ClapTrap::_Name << RESET << std::endl;
 
 	return ;
 }

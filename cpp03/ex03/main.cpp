@@ -5,51 +5,24 @@
 
 int        main(void) 
 { 
-	DiamondTrap        tic("Tic"); 
-	DiamondTrap        tic2("Truc"); 
+	DiamondTrap        tic("Monstre");
+	std::cout << std::endl;
+	DiamondTrap        tic2("Double Monstre");
+	std::cout << std::endl;
 
-	std::cout << "tic2 first name = " << tic2.getName();
+	std::cout << CYAN << "tic2 first name = " << tic2.getName() << RESET << std::endl;
 
 	tic2 = tic; 
-	DiamondTrap        tic3(tic); 
+	DiamondTrap        tic3(tic);
 
-	std::cout << "\nTic playing\n"; 
-	tic.whoAmI(); 
-	tic.attack("Tac"); 
-	tic.FragTrap::takeDamage(7); 
-	tic.ScavTrap::beRepaired(2); 
-	tic.FragTrap::takeDamage(5); 
-	tic.attack("Toc"); 
-	tic.attack("Tuc"); 
-	tic.FragTrap::takeDamage(33); 
-	tic.attack("Tac"); 
-	tic.ScavTrap::beRepaired(42); 
+	std::cout << CYAN << std::endl << tic3.getName() << RESET << std::endl << std::endl;
 
+	tic3.whoAmI();
 
-	tic2.whoAmI();
-	tic2.attack("Tic"); 
-	tic2.attack("Tac"); 
-	tic2.attack("Toc"); 
+	std::cout << tic2.getName() << std::endl << tic2.getHitPoints() << std::endl\
+	<< tic2.getEnergyPoints() << std::endl << tic2.getDamage()  << std::endl << std::endl;
 
-
-	tic2.FragTrap::takeDamage(42); 
-	tic2.highFivesGuys(); 
-	tic2.guardGate(); 
-	tic2.whoAmI(); 
-
-	tic2.attack("Tac"); 
-	tic2.FragTrap::takeDamage(42); 
-	tic2.attack("Toc"); 
-	tic2.attack("Tic"); 
-	tic2.FragTrap::takeDamage(42); 
-	tic2.attack("Tac"); 
-
-
-	std::cout << "\nTic3 playing\n"; 
-	tic3.whoAmI(); 
-	tic3.FragTrap::takeDamage(90); 
-	tic3.ScavTrap::beRepaired(90); 
-	tic3.FragTrap::takeDamage(42); 
-	tic3.ScavTrap::beRepaired(42); 
+	tic2.attack(tic.getName());
+	
 	return (0); 
 }

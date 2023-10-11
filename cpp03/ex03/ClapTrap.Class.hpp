@@ -12,7 +12,7 @@
 #define GREEN   "\033[32m"
 #define YELLOW  "\033[33m"
 #define BLUE    "\033[34m"
-#define CYAN    "\033[5;96m"
+#define CYAN    "\033[96m"
 
 class ClapTrap
 {

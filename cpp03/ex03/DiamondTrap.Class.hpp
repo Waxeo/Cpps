@@ -5,10 +5,11 @@
 #include "ScavTrap.Class.hpp"
 #include "FragTrap.Class.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap
+class DiamondTrap : virtual public ScavTrap, virtual public FragTrap
 {
     public:
 
+        DiamondTrap( void );
         DiamondTrap( std::string name );
         DiamondTrap( DiamondTrap &src );
         ~DiamondTrap( void );
@@ -16,6 +17,8 @@ class DiamondTrap : public ScavTrap, public FragTrap
 	    void attack(const std::string& target);
 
         std::string getName( void );
+        int	        getHitPoints( void );
+        int		    getEnergyPoints( void );
 		int         getDamage( void );
 
         void whoAmI( void );
@@ -26,8 +29,6 @@ class DiamondTrap : public ScavTrap, public FragTrap
         int	_HitPoints;
 		int	_EnergyPoints;
 		int	_AttackDamage;
-
-        DiamondTrap( void );
 };
 
 #endif
