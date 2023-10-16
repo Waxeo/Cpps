@@ -35,10 +35,10 @@ class Animal
 
 };
 
-/*From now on, all your classes must be designed
- in the Orthodox Canonical Form, unless explicitely
-  stated otherwise. Then, they will implement the four
-   required member functions below:
+/* From now on, all your classes must be designed
+in the Orthodox Canonical Form, unless explicitely
+stated otherwise. Then, they will implement the four
+required member functions below:
 
 • Default constructor
 
@@ -46,7 +46,7 @@ class Animal
 
 • Copy assignment operator 
 
-• Destructor*/
+• Destructor */
 
 
 #endif

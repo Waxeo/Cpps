@@ -12,13 +12,13 @@ class Cat : public Animal
         Cat( std::string name );
         virtual ~Cat( void );
 	    
-		Cat	&operator=( Cat const &src );
+		virtual Cat	&operator=( Cat const &src );
 
 		virtual void makeSound( void ) const;
 
     private:
     
-        Brain   *_Cat_Brain;
+        Brain   *_CatBrain;
 };
 
 #endif

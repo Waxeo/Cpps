@@ -23,8 +23,7 @@ WHITE		= \033[0;97m
 
 # Sources
 
-FILES	=	main.cpp Animal.cpp Dog.cpp Cat.cpp \
-			WrongAnimal.cpp WrongCat.cpp
+FILES	=	main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 
 ###
 
@@ -35,7 +34,7 @@ $(OBJF)	:
 
 all		:	$(NAME)
 
-$(NAME)	:	$(FILES) Cat.Class.hpp Dog.Class.hpp Animal.Class.hpp WrongAnimal.Class.hpp ./Makefile
+$(NAME)	:	$(FILES) Cat.Class.hpp Dog.Class.hpp Animal.Class.hpp Brain.Class.hpp ./Makefile
 	@echo "\n"
 	$(CC) $(FLAG) $(FILES) -o $(NAME)
 	@echo "$(YELLOW)$(PROJECT) compiled!$(DEF_COLOR)"

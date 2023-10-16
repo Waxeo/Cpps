@@ -12,13 +12,13 @@ class Dog : public Animal
         Dog( std::string name );
         virtual ~Dog( void );
         
-		Dog	&operator=( Dog const &src );
+		virtual Dog	&operator=( Dog const &src );
 
 		virtual void makeSound( void ) const;
     
     private:
 
-        Brain   *_Dog_Brain;
+        Brain   *_DogBrain;
 };
 
 #endif
