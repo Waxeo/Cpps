@@ -1,4 +1,5 @@
 #include "Animal.Class.hpp"
+#include "Brain.Class.hpp"
 
 Animal::Animal( void )
 {
@@ -12,7 +13,7 @@ Animal::Animal( std::string type ) : _Type(type)
 	return ;
 }
 
-Animal::Animal( Animal &src )
+Animal::Animal( const Animal &src )
 {
 	// std::cout << "Copy constructor called" << std::endl;
 	*this = src;
@@ -47,4 +48,16 @@ void	Animal::makeSound( void ) const
 std::string 	Animal::getType() const
 {
 	return this->_Type;
+}
+
+Brain*	Animal::getBrain() const
+{
+	return NULL;
+}
+
+void	Animal::setBrain(std::string idea)
+{
+	(void)idea;
+
+	return ;
 }

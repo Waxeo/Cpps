@@ -4,23 +4,103 @@
 #include "WrongCat.Class.hpp"
 #include "WrongAnimal.Class.hpp"
 
+void	subjectTests()
+{
+	std::cout << GREEN << "////////////FIRST SUBJECT TEST////////////" << RESET << std::endl;
+
+	Animal *tab[10];
+
+	for (int i = 0; i < 10; i++)
+	{
+		if (!(i % 2))
+			tab[i] = new Dog();
+		else
+			tab[i] = new Cat();
+	}
+
+	for (int i = 0; i < 10; i++)
+		delete tab[i];
+
+	return ;
+}
+
+void	CatShallowCopy()
+{
+	std::cout << GREEN << "////////////CATS BRAIN COPY TEST////////////" << RESET << std::endl;
+
+	Cat *cat[2];
+
+	cat[0] = new Cat();
+	Brain* test1 = cat[0]->getBrain();
+	if (test1)
+		test1->setIdeas("miaou");
+	
+	cat[1] = new Cat(*cat[0]);
+
+	Brain* test2 = cat[1]->getBrain();
+	if (test2)
+		test2->getIdeas();
+	std::cout << std::endl;
+	
+	if (test1)
+	{
+		test1->setIdeas("pas miaou");
+		test1->getIdeas();
+		std::cout << std::endl;
+	}
+	if (test2)
+		test2->getIdeas();
+	std::cout << std::endl;
+
+	delete cat[0];
+	delete cat[1];
+
+	return ;
+}
+
+void	DogShallowCopy()
+{
+	std::cout << GREEN << "////////////DOGS BRAIN COPY TEST////////////" << RESET << std::endl;
+
+	Dog *dog[2];
+
+	dog[0] = new Dog();
+	Brain* test1 = dog[0]->getBrain();
+	if (test1)
+		test1->setIdeas("wouaf");
+	
+	dog[1] = new Dog(*dog[0]);
+
+	Brain* test2 = dog[1]->getBrain();
+	if (test2)
+		test2->getIdeas();
+	std::cout << std::endl;
+	
+	if (test1)
+	{
+		test1->setIdeas("pas wouaf");
+		test1->getIdeas();
+		std::cout << std::endl;
+	}
+	if (test2)
+		test2->getIdeas();
+
+	delete dog[0];
+	delete dog[1];
+
+	return ;
+}
+
+
 int main() 
 {
-    const Animal **j = NULL;
-
-    for (int i = 0; i < 100; i++)
-    {
-        if (i < 50)
-            j[i] = new Dog();
-        else 
-            j[i] = new Cat();
-    }
-    
-    for (int i = 0; i < 100; i++)
-        delete j[i];
+	subjectTests();
+	CatShallowCopy();
+	DogShallowCopy();
 
     return 0;
 }
+
 
 /*
 Une copie superficielle (shallow copy),

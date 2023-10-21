@@ -6,19 +6,23 @@
 
 class Cat : public Animal
 {
-    public:
+	public:
 
-        Cat( void );
-        Cat( std::string name );
-        virtual ~Cat( void );
-	    
-		virtual Cat	&operator=( Cat const &src );
+		Cat( void );
+		Cat( std::string name );
+		Cat( const Cat &src );
+		virtual ~Cat( void );
+		
+		Cat	&operator=( Cat const &src );
 
 		virtual void makeSound( void ) const;
 
-    private:
-    
-        Brain   *_CatBrain;
+		virtual Brain*	getBrain() const;
+		virtual void	setBrain(std::string idea);
+
+	private:
+	
+		Brain   *_Brain;
 };
 
 #endif

@@ -1,6 +1,7 @@
 #ifndef ANIMAL_CLASS_HPP
 # define ANIMAL_CLASS_HPP
 
+#include "Brain.Class.hpp"
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -20,7 +21,7 @@ class Animal
 
 		Animal( void );
 		Animal( std::string name );
-		Animal( Animal &src );
+		Animal( const Animal &src );
 		virtual ~Animal( void );
 
 		Animal	&operator=( Animal const &src );
@@ -28,6 +29,9 @@ class Animal
 		virtual void makeSound( void ) const;
 
 		std::string getType() const;
+
+		virtual Brain*	getBrain() const;
+		virtual void	setBrain(std::string idea);
 		
 	protected:
 

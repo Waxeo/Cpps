@@ -1,7 +1,11 @@
 #ifndef BRAIN_CLASS_HPP
 # define BRAIN_CLASS_HPP
 
-#include "Animal.Class.hpp"
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <fstream>
+#include <cmath>
 
 class Brain
 {
@@ -12,10 +16,13 @@ class Brain
         virtual ~Brain( void );
         
 		Brain	&operator=( Brain const &src );
+
+		void	setIdeas(std::string idea);
+		void	getIdeas();
 	
 	private:
 	
-		std::string _ideas[100];
+		std::string _Ideas[100];
 };
 
 #endif
