@@ -1,6 +1,6 @@
 # Variables
 
-NAME	=	
+NAME	=	Bureaucrat
 PROJECT =	Cpp05 - Ex00
 CC		=	c++
 FLAG	=	-Wall -Wextra -Werror -std=c++98 -g3

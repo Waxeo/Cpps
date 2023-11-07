@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( void ) : _Grade(150), _Name("Default")
+Bureaucrat::Bureaucrat( void ) : _Name("Random Bureaucrat"), _Grade(150)
 {
 	return ;
 }
@@ -33,7 +33,7 @@ Bureaucrat	&Bureaucrat::operator=( Bureaucrat const &rhs )
 	if (this != &rhs)
 		this->_Grade = rhs.getGrade();
 
-	return ;
+	return *this;
 }
 
 std::string		Bureaucrat::getName() const 
@@ -46,30 +46,30 @@ int		Bureaucrat::getGrade() const
 	return this->_Grade;
 }
 
-bool Bureaucrat::TryIncrement( void )
+void Bureaucrat::TryIncrement( void )
 {
 	if (this->_Grade - 1 < 1)
-		return false;
-	return true;
+		throw GradeTooHighException();
+	this->_Grade -= 1;
+	return ;
 }
 
-bool Bureaucrat::TryDecrement( void )
+void Bureaucrat::TryDecrement( void )
 {
 	if (this->_Grade + 1 > 150)
-		return false;
-	return true;
+		throw GradeTooLowException();
+	this->_Grade += 1;
+	return ;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	std::cout << "Grade too high" << std::endl;
-	return ;
+	return "Grade too high";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	std::cout << "Grade too low" << std::endl;
-	return ;
+	return "Grade too low";
 }
 
 std::ostream	&operator<<( std::ostream & o, Bureaucrat const &rhs)
