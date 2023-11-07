@@ -1,7 +1,7 @@
-#ifndef DOG_CLASS_HPP
-# define DOG_CLASS_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include "Animal.Class.hpp"
+#include "Animal.hpp"
 
 class Dog : public Animal
 {
@@ -9,6 +9,7 @@ class Dog : public Animal
 
         Dog( void );
         Dog( std::string name );
+		Dog( const Dog &src );
         virtual ~Dog( void );
         
 		Dog	&operator=( Dog const &src );

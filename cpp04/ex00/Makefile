@@ -35,7 +35,7 @@ $(OBJF)	:
 
 all		:	$(NAME)
 
-$(NAME)	:	$(FILES) Cat.Class.hpp Dog.Class.hpp Animal.Class.hpp WrongAnimal.Class.hpp ./Makefile
+$(NAME)	:	$(FILES) Cat.hpp Dog.hpp Animal.hpp WrongAnimal.hpp ./Makefile
 	@echo "\n"
 	$(CC) $(FLAG) $(FILES) -o $(NAME)
 	@echo "$(YELLOW)$(PROJECT) compiled!$(DEF_COLOR)"

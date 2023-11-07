@@ -1,8 +1,8 @@
-#include "AAnimal.Class.hpp"
-#include "Dog.Class.hpp"
-#include "Cat.Class.hpp"
-#include "WrongCat.Class.hpp"
-#include "WrongAnimal.Class.hpp"
+#include "AAnimal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
 
 void	subjectTests()
 {

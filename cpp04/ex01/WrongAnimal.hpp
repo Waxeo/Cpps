@@ -1,5 +1,5 @@
-#ifndef WRONGANIMAL_CLASS_HPP
-# define WRONGANIMAL_CLASS_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 #include <iostream>
 #include <iomanip>
@@ -25,7 +25,7 @@ class WrongAnimal
 
 		WrongAnimal	&operator=( WrongAnimal const &src );
 
-		virtual void makeSound( void ) const;
+		void makeSound( void ) const;
 
 		std::string getType() const;
 

@@ -1,4 +1,4 @@
-#include "Cat.Class.hpp"
+#include "Cat.hpp"
 
 Cat::Cat( void ) : AAnimal()
 {

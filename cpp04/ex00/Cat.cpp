@@ -1,6 +1,6 @@
-#include "Cat.Class.hpp"
+#include "Cat.hpp"
 
-Cat::Cat( void ) : Animal()
+Cat::Cat( void ) : Animal("Cat")
 {
 	std::cout << "default cat constructor called" << std::endl;
 
@@ -10,6 +10,13 @@ Cat::Cat( void ) : Animal()
 Cat::Cat( std::string name ) : Animal(name)
 {
 	std::cout << "Cat constructor called" << std::endl;
+
+	return ;
+}
+
+Cat::Cat( const Cat &src ) : Animal(src._Type)
+{
+	// std::cout << "Copy constructor called" << std::endl;
 
 	return ;
 }

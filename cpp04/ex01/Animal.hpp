@@ -1,6 +1,7 @@
-#ifndef ANIMAL_CLASS_HPP
-# define ANIMAL_CLASS_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
+#include "Brain.hpp"
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -20,7 +21,7 @@ class Animal
 
 		Animal( void );
 		Animal( std::string name );
-		Animal( Animal &src );
+		Animal( const Animal &src );
 		virtual ~Animal( void );
 
 		Animal	&operator=( Animal const &src );
@@ -28,6 +29,9 @@ class Animal
 		virtual void makeSound( void ) const;
 
 		std::string getType() const;
+
+		virtual Brain*	getBrain() const;
+		virtual void	setBrain(std::string idea);
 		
 	protected:
 
@@ -35,10 +39,10 @@ class Animal
 
 };
 
-/*From now on, all your classes must be designed
- in the Orthodox Canonical Form, unless explicitely
-  stated otherwise. Then, they will implement the four
-   required member functions below:
+/* From now on, all your classes must be designed
+in the Orthodox Canonical Form, unless explicitely
+stated otherwise. Then, they will implement the four
+required member functions below:
 
 • Default constructor
 
@@ -46,7 +50,7 @@ class Animal
 
 • Copy assignment operator 
 
-• Destructor*/
+• Destructor */
 
 
 #endif

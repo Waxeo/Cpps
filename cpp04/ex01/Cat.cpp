@@ -1,6 +1,6 @@
-#include "Cat.Class.hpp"
+#include "Cat.hpp"
 
-Cat::Cat( void ) : Animal()
+Cat::Cat( void ) : Animal("Cat")
 {
 	std::cout << "default cat constructor called" << std::endl;
 

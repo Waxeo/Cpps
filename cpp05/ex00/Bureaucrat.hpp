@@ -1,5 +1,5 @@
-#ifndef BUREAUCRAT_CLASS_HPP
-# define BUREAUCRAT_CLASS_HPP
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <iomanip>
@@ -18,6 +18,7 @@ class Bureaucrat
 	public:
 
 		Bureaucrat( void );
+		Bureaucrat( std::string name, int grade );
 		Bureaucrat( Bureaucrat const &src );
 		~Bureaucrat( void );
 
@@ -26,22 +27,19 @@ class Bureaucrat
 		std::string		getName() const ;
 		int			getGrade() const;
 
+		bool TryIncrement( void );
+		bool TryDecrement( void );
+
 		class GradeTooHighException : public std::exception
 		{
     		public:
-        		GradeTooHighException(const std::string& message) : message(message) {}
-       			virtual const char* what() const noexcept override {
-            	return message.c_str();
-        		}
+       			virtual const char* what() const throw();
 		};
 
 		class GradeTooLowException : public std::exception
 		{
     		public:
-        		GradeTooLowException(const std::string& message) : message(message) {}
-       			virtual const char* what() const noexcept override {
-            	return message.c_str();
-        		}
+       			virtual const char* what() const throw();
 		};
 
 	private:
@@ -51,6 +49,19 @@ class Bureaucrat
 
 };
 
-std::ostream	&	operator<<( std::ostream & o, Fixed const &rhs);
+std::ostream	&	operator<<( std::ostream & o, Bureaucrat const &rhs);
 
 #endif
+
+/* From now on, all your classes must be designed
+in the Orthodox Canonical Form, unless explicitely
+stated otherwise. Then, they will implement the four
+required member functions below:
+
+• Default constructor
+
+• Copy constructor
+
+• Copy assignment operator 
+
+• Destructor */

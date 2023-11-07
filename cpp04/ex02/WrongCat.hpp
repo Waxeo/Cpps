@@ -1,7 +1,7 @@
-#ifndef WRONGCAT_CLASS_HPP
-# define WRONGCAT_CLASS_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-#include "WrongAnimal.Class.hpp"
+#include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal
 {
@@ -13,7 +13,7 @@ class WrongCat : public WrongAnimal
 	    
 		WrongCat	&operator=( WrongCat const &src );
 
-		virtual void makeSound( void ) const;
+		void makeSound( void ) const;
 };
 
 #endif

@@ -1,4 +1,4 @@
-#include "Animal.Class.hpp"
+#include "Animal.hpp"
 
 Animal::Animal( void )
 {

@@ -1,7 +1,7 @@
-#include "Animal.Class.hpp"
-#include "Dog.Class.hpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
 
-Dog::Dog( void ) : Animal()
+Dog::Dog( void ) : Animal("Dog")
 {
 	std::cout << "default dog constructor called" << std::endl;
 
@@ -11,6 +11,13 @@ Dog::Dog( void ) : Animal()
 Dog::Dog( std::string type ) : Animal(type)
 {
 	std::cout << "Dog constructor called" << std::endl;
+
+	return ;
+}
+
+Dog::Dog( const Dog &src ) : Animal(src._Type)
+{
+	// std::cout << "Copy constructor called" << std::endl;
 
 	return ;
 }

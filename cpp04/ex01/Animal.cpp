@@ -1,5 +1,5 @@
-#include "Animal.Class.hpp"
-#include "Brain.Class.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
 Animal::Animal( void )
 {

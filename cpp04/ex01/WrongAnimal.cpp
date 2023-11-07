@@ -1,4 +1,4 @@
-#include "WrongAnimal.Class.hpp"
+#include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal( void )
 {
