@@ -30,6 +30,8 @@ class Bureaucrat
 		void TryIncrement( void );
 		void TryDecrement( void );
 
+		void	signForm(int message, std::string name) const;
+
 		class GradeTooHighException : public std::exception
 		{
     		public:

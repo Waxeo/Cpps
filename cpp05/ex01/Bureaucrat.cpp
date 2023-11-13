@@ -62,6 +62,28 @@ void Bureaucrat::TryDecrement( void )
 	return ;
 }
 
+void	Bureaucrat::signForm(int message, std::string name) const
+{
+	switch (message)
+	{
+		case 1:
+			std::cout << this->_Name << " signed " << name << std::endl;
+			break ;
+
+		case 2:
+			std::cout << this->_Name << " couldn't sign " << name << " because his grade is to low." << std::endl;
+			break ;
+
+
+		case 3:
+			std::cout << this->_Name << " couldn't sign " << name << " because this form is already signed." << std::endl;
+			break ;
+
+		default:
+			std::cout << "Signing Problem" << std::endl;
+	}
+}
+
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "Grade too high";

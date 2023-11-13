@@ -23,7 +23,7 @@ WHITE		= \033[0;97m
 
 # Sources
 
-FILES	=	main.cpp Bureaucrat.cpp
+FILES	=	main.cpp Bureaucrat.cpp Form.cpp
 
 ###
 
@@ -34,7 +34,7 @@ $(OBJF)	:
 
 all		:	$(NAME)
 
-$(NAME)	:	$(FILES) Bureaucrat.hpp ./Makefile
+$(NAME)	:	$(FILES) Bureaucrat.hpp Form.hpp ./Makefile
 	@echo "\n"
 	$(CC) $(FLAG) $(FILES) -o $(NAME)
 	@echo "$(YELLOW)$(PROJECT) compiled!$(DEF_COLOR)"
