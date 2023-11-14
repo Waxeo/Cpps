@@ -1,22 +1,18 @@
-#ifndef AFORM_HPP
-#define AFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <fstream>
-#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
-class AForm
+class RobotomyRequestForm : public AForm
 {
 	public:
 
-		AForm( void );
-		AForm( std::string name, bool sign, int signgrade, int execgrade );
-		AForm( AForm const &src );
-		~AForm( void );
+		RobotomyRequestForm( void );
+		RobotomyRequestForm( std::string name, bool sign, int signgrade, int execgrade );
+		RobotomyRequestForm( RobotomyRequestForm const &src );
+		~RobotomyRequestForm( void );
 
-		AForm	&	operator=( AForm const &rhs );
+		RobotomyRequestForm	&	operator=( RobotomyRequestForm const &rhs );
 
 		std::string		getName() const;
 		bool		getSigned() const;
@@ -45,7 +41,7 @@ class AForm
 		const int		_ExecGrade;
 };
 
-std::ostream	&	operator<<( std::ostream & o, AForm const &rhs);
+std::ostream	&	operator<<( std::ostream & o, RobotomyRequestForm const &rhs);
 
 
 #endif

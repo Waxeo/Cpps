@@ -1,22 +1,18 @@
-#ifndef AFORM_HPP
-#define AFORM_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <fstream>
-#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
-class AForm
+class ShrubberyCreationForm : public AForm
 {
 	public:
 
-		AForm( void );
-		AForm( std::string name, bool sign, int signgrade, int execgrade );
-		AForm( AForm const &src );
-		~AForm( void );
+		ShrubberyCreationForm( void );
+		ShrubberyCreationForm( std::string name, bool sign, int signgrade, int execgrade );
+		ShrubberyCreationForm( ShrubberyCreationForm const &src );
+		~ShrubberyCreationForm( void );
 
-		AForm	&	operator=( AForm const &rhs );
+		ShrubberyCreationForm	&	operator=( ShrubberyCreationForm const &rhs );
 
 		std::string		getName() const;
 		bool		getSigned() const;
@@ -45,7 +41,7 @@ class AForm
 		const int		_ExecGrade;
 };
 
-std::ostream	&	operator<<( std::ostream & o, AForm const &rhs);
+std::ostream	&	operator<<( std::ostream & o, ShrubberyCreationForm const &rhs);
 
 
 #endif

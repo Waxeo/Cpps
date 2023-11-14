@@ -1,22 +1,18 @@
-#ifndef AFORM_HPP
-#define AFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <fstream>
-#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
-class AForm
+class PresidentialPardonForm : public AForm
 {
 	public:
 
-		AForm( void );
-		AForm( std::string name, bool sign, int signgrade, int execgrade );
-		AForm( AForm const &src );
-		~AForm( void );
+		PresidentialPardonForm( void );
+		PresidentialPardonForm( std::string name, bool sign, int signgrade, int execgrade );
+		PresidentialPardonForm( PresidentialPardonForm const &src );
+		~PresidentialPardonForm( void );
 
-		AForm	&	operator=( AForm const &rhs );
+		PresidentialPardonForm	&	operator=( PresidentialPardonForm const &rhs );
 
 		std::string		getName() const;
 		bool		getSigned() const;
@@ -45,7 +41,7 @@ class AForm
 		const int		_ExecGrade;
 };
 
-std::ostream	&	operator<<( std::ostream & o, AForm const &rhs);
+std::ostream	&	operator<<( std::ostream & o, PresidentialPardonForm const &rhs);
 
 
 #endif
