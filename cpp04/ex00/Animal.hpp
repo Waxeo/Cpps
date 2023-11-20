@@ -46,7 +46,10 @@ class Animal
 
 • Copy assignment operator 
 
-• Destructor*/
+• Destructor
+
+Virtual pour une fonction (methode) servira a gerer une redefinition
+de la methode et pour une classe ca servira a faire la gestion du lien dynamiquement*/
 
 
 #endif

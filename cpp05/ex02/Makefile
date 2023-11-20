@@ -1,7 +1,7 @@
 # Variables
 
-NAME	=	Form
-PROJECT =	Cpp05 - Ex01
+NAME	=	Formz
+PROJECT =	Cpp05 - Ex02
 CC		=	c++
 FLAG	=	-Wall -Wextra -Werror -std=c++98 -g3
 
@@ -36,7 +36,6 @@ $(OBJF)	:
 all		:	$(NAME)
 
 $(NAME)	:	$(FILES) Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp ./Makefile
-	@echo "\n"
 	$(CC) $(FLAG) $(FILES) -o $(NAME)
 	@echo "$(YELLOW)$(PROJECT) compiled!$(DEF_COLOR)"
 

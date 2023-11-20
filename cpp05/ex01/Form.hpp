@@ -12,7 +12,7 @@ class Form
 	public:
 
 		Form( void );
-		Form( std::string name, bool sign, int signgrade, int execgrade );
+		Form( std::string name, int signgrade, int execgrade );
 		Form( Form const &src );
 		~Form( void );
 

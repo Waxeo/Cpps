@@ -16,10 +16,8 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _Name(name)
 	return ;
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const &src )
+Bureaucrat::Bureaucrat( Bureaucrat const &src ) : _Name(src._Name), _Grade(src._Grade)
 {
-	*this = src;
-
 	return ;
 }
 

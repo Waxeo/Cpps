@@ -1,7 +1,7 @@
 # Variables
 
-NAME	=	Bureaucrat
-PROJECT =	Cpp05 - Ex00
+NAME	=	Intern
+PROJECT =	Cpp05 - Ex03
 CC		=	c++
 FLAG	=	-Wall -Wextra -Werror -std=c++98 -g3
 
@@ -23,7 +23,8 @@ WHITE		= \033[0;97m
 
 # Sources
 
-FILES	=	main.cpp Bureaucrat.cpp
+FILES	=	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 ###
 
@@ -34,7 +35,7 @@ $(OBJF)	:
 
 all		:	$(NAME)
 
-$(NAME)	:	$(FILES) Bureaucrat.hpp ./Makefile
+$(NAME)	:	$(FILES) Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp ./Makefile
 	$(CC) $(FLAG) $(FILES) -o $(NAME)
 	@echo "$(YELLOW)$(PROJECT) compiled!$(DEF_COLOR)"
 

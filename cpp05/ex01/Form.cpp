@@ -5,7 +5,7 @@ Form::Form( void ) : _Name("Random Form"), _Signed(false), _SignGrade(100), _Exe
 	return ;
 }
 
-Form::Form( std::string name, bool sign, int signgrade, int execgrade ) : _Name(name), _Signed(sign), _SignGrade(signgrade), _ExecGrade(execgrade)
+Form::Form( std::string name, int signgrade, int execgrade ) : _Name(name), _Signed(false), _SignGrade(signgrade), _ExecGrade(execgrade)
 {
 	if (signgrade > 150 || execgrade > 150)
 		throw GradeTooLowException();
@@ -16,8 +16,6 @@ Form::Form( std::string name, bool sign, int signgrade, int execgrade ) : _Name(
 
 Form::Form( Form const &src ) : _Name(src.getName()), _Signed(src.getSigned()), _SignGrade(src.getSignGrade()), _ExecGrade(src.getExecGrade())
 {
-	*this = src;
-
 	return ;
 }
 

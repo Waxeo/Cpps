@@ -50,7 +50,7 @@ int	main()
 	{
 		std::cout << GREEN << "//////////TEST3/////////" << RESET << std::endl;
 
-		Form	form1("adm", false, 151, 0);
+		Form	form1("adm", 151, 0);
 	}
 	catch (std::exception & e)
 	{
@@ -61,7 +61,7 @@ int	main()
 	{
 		std::cout << GREEN << "//////////TEST3.V2/////////" << RESET << std::endl;
 
-		Form	form1("adm", false, 100, 0);
+		Form	form1("adm", 100, 0);
 	}
 	catch (std::exception & e)
 	{
