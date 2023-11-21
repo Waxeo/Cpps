@@ -17,7 +17,7 @@ class AForm
 		AForm( void );
 		AForm( std::string name, int signgrade, int execgrade );
 		AForm( AForm const &src );
-		~AForm( void );
+		virtual ~AForm( void );
 
 		AForm	&	operator=( AForm const &rhs );
 

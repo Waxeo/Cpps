@@ -18,6 +18,7 @@ int	main()
 
 		std::cout << rrf->getName() << std::endl;
 
+		delete rrf;
 	}
 	catch (std::exception & e)
 	{
@@ -37,6 +38,7 @@ int	main()
 
 		std::cout << rrf->getName() << std::endl;
 
+		delete rrf;
 	}
 	catch (std::exception & e)
 	{
@@ -56,6 +58,7 @@ int	main()
 
 		std::cout << rrf->getName() << std::endl;
 
+		delete rrf;
 	}
 	catch (std::exception & e)
 	{
@@ -74,6 +77,8 @@ int	main()
 		rrf = someRandomIntern.makeForm("random request", "Bender");
 
 		std::cout << rrf->getName() << std::endl;
+
+		
 
 	}
 	catch (std::exception & e)
