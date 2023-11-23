@@ -27,16 +27,20 @@ Intern	&Intern::operator=( Intern const &rhs )
 
 static AForm*	createPresidential(const std::string& target)
 {
+	std::cout << "Intern creates presidential pardon form" << std::endl;
 	return new PresidentialPardonForm(target);
 }
 
 static AForm*	createRobotomy(const std::string& target)
 {
+	std::cout << "Intern creates robotomy request form" << std::endl;
+
 	return new RobotomyRequestForm(target);
 }
 
 static AForm*	createShrubbery(const std::string& target)
 {
+	std::cout << "Intern creates shurbbery creation form" << std::endl;
 	return new ShrubberyCreationForm(target);
 }
 
