@@ -27,13 +27,21 @@ bool	isInt(std::string base)
 			return false;
 	}
 	
-    int value = atoi(base.c_str());
 
-	if (value == 0 && base[base.size() - 1] != 48)
-		return false;
+	char* endptr;
+    errno = 0;
+    long long int value = strtoll(base.c_str(), &endptr, 10);
 
-	if (value > std::numeric_limits<int>::max() || value < std::numeric_limits<int>::min()) 
-		return false;
+    // Vérifier si la conversion a échoué ou si des caractères non valides existent dans la chaîne
+    if (errno != 0 || *endptr != '\0') {
+        return false;
+    }
+
+    // Vérifier les limites de int
+    if (value > std::numeric_limits<int>::max() || value < std::numeric_limits<int>::min()) {
+        return false;
+    }
+
 	return true;
 
 }
@@ -43,14 +51,14 @@ bool	isFloat(std::string base)
 	size_t minus = 0;
 	int	dot = 0;
 
-	if (base[minus] == 45)
+	if (base[minus] == 45 || base[minus] == 43)
 		minus++;
 
 	for	(size_t i = 0 + minus; i < base.size(); i++)
 	{
 		if (!isdigit(base[i]) && base[i] != 46 && base[i] != 102)
 			return false;
-		if (base[i] == 46)
+		if (base[i] == 46 && isdigit(base[i - 1]))
 			dot++;
 	}
 
@@ -66,13 +74,13 @@ bool	isDouble(std::string base)
 	size_t	i = 0; 
 	int	dot = 0;
 
-	if (base[i] == 45)
+	if (base[i] == 45 || base[i] == 43)
 		i++;
 	for	(size_t x = 0 + i; x < base.size(); x++)
 	{
 		if (!isdigit(base[x]) && base[x] != 46)
 			return false;
-		if (base[x] == 46)
+		if (base[x] == 46 && isdigit(base[x - 1]))
 			dot++;
 	}
 	if (dot != 1)
@@ -82,55 +90,81 @@ bool	isDouble(std::string base)
 	return true;
 }
 
+
+int	typeFinder(std::string base)
+{
+	if (base.size() == 1)
+	{
+		if (base[0] >= '0' && base[0] <= '9')
+			return 2;
+		else
+			return 1;
+	}
+
+	if (isInt(base) == true)
+		return 2;
+	
+	if (isFloat(base) == true)
+		return 3;
+
+	if (isDouble(base) == true)
+		return 4;
+
+	return -1;
+}
+
 void	ScalarConverter::convert(std::string base)
 {
-	bool test;
+	int type = typeFinder(base);
+	char char_ = '\0';
+	int	int_ = 0;
+	float float_ = 0.0f;
+	double double_ = 0.0;
 
-	test = isChar(base);
+	switch (type)
+	{
+		case 1:
+			char_ = base[0];
+			int_ = static_cast<int>(char_);
+			float_ = static_cast<float>(char_);
+			double_ = static_cast<double>(char_);
+			break;
 
-	if (test == true)
-		std::cout << "isoke" << std::endl;
-	else
-		std::cout << "notoke" << std::endl;
+		case 2:
+			int_ = std::atoi(base.c_str());
+			char_ = static_cast<char>(int_);
+			float_ = static_cast<float>(int_);
+			double_ = static_cast<double>(int_);
+			break;
 
+		case 3:
+			float_ = static_cast<float>(std::atof(base.c_str()));
+			char_ = static_cast<char>(float_);
+			int_ = static_cast<int>(float_);
+			double_ = static_cast<double>(float_);
+			break;
 
+		case 4:
+			double_ = std::atof(base.c_str());
+			char_ = static_cast<char>(double_);
+			int_ = static_cast<int>(double_);
+			float_ = static_cast<float>(double_);
+			break;
 
+		default:
+			std::cout << "Wrong argument." << std::endl;
+			break;
 
-	bool test1;
+	}
 
-	test1 = isInt(base);
-
-	if (test1 == true)
-		std::cout << "isoke" << std::endl;
-	else
-		std::cout << "notoke" << std::endl;
-
-
-
-
-
-	bool test2;
-
-	test2 = isFloat(base);
-
-	if (test2 == true)
-		std::cout << "isoke" << std::endl;
-	else
-		std::cout << "notoke" << std::endl;
-
-
-
-
-	bool test3;
-
-	test3 = isDouble(base);
-
-	if (test3 == true)
-		std::cout << "isoke" << std::endl;
-	else
-		std::cout << "notoke" << std::endl;
-
-
+	if (isprint(char_))
+		std::cout << "char : '" << char_ << "'" << std::endl;
+	else 
+		std::cout << "Character non-printable" << std::endl;
+	std::cout << "int : " << int_ << std::endl;
+	
+	std::cout << "float : " << float_ << std::endl;
+	std::cout << "double : " << double_ << std::endl;
 
 	return ;
 }
