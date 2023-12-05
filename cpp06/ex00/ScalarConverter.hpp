@@ -6,6 +6,7 @@
 #include <string>
 #include <fstream>
 #include <cstdlib>
+#include <cmath>
 #include <ctime>
 #include <limits>
 

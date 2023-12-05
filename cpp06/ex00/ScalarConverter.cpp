@@ -160,9 +160,9 @@ void	ScalarConverter::convert(std::string base)
 	if (isprint(char_))
 		std::cout << "char : '" << char_ << "'" << std::endl;
 	else 
-		std::cout << "Character non-printable" << std::endl;
+		std::cout << "char : non-printable" << std::endl;
+		
 	std::cout << "int : " << int_ << std::endl;
-	
 	std::cout << "float : " << float_ << std::endl;
 	std::cout << "double : " << double_ << std::endl;
 
