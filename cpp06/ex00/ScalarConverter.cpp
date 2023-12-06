@@ -113,6 +113,54 @@ int	typeFinder(std::string base)
 	return -1;
 }
 
+bool	check_particular(std::string base)
+{
+	float particular = 0.0f;
+	double particular2 = 0.0f;
+
+	if (!base.compare("nanf") || !base.compare("nan"))
+	{
+		particular = std::numeric_limits<float>::quiet_NaN();
+		particular2 = std::numeric_limits<double>::quiet_NaN();
+
+		std::cout << "char : impossible" << std::endl;
+		std::cout << "int : impossible" << std::endl;
+		std::cout << "float : " << particular << "f" << std::endl;
+		std::cout << "double : " << particular2 << std::endl;
+		
+		return true;
+	}
+
+	if (!base.compare("-inff") || !base.compare("-inf"))
+	{
+		particular = -std::numeric_limits<float>::infinity();
+		particular2 = -std::numeric_limits<double>::infinity();
+
+
+		std::cout << "char : impossible" << std::endl;
+		std::cout << "int : impossible" << std::endl;
+		std::cout << "float : " << particular << "f" << std::endl;
+		std::cout << "double : " << particular2 << std::endl;
+
+		return true;
+	}
+
+	if (!base.compare("+inff") || !base.compare("+inf"))
+	{
+		particular = std::numeric_limits<float>::infinity();
+		particular2 = std::numeric_limits<double>::infinity();
+
+
+		std::cout << "char : impossible" << std::endl;
+		std::cout << "int : impossible" << std::endl;
+		std::cout << "float : " << particular << "f" << std::endl;
+		std::cout << "double : " << particular2 << std::endl;
+
+		return true;
+	}
+	return false;
+}
+
 void	ScalarConverter::convert(std::string base)
 {
 	int type = typeFinder(base);
@@ -121,6 +169,8 @@ void	ScalarConverter::convert(std::string base)
 	float float_ = 0.0f;
 	double double_ = 0.0;
 
+	if (check_particular(base))
+		return;
 	switch (type)
 	{
 		case 1:
@@ -161,10 +211,13 @@ void	ScalarConverter::convert(std::string base)
 		std::cout << "char : '" << char_ << "'" << std::endl;
 	else 
 		std::cout << "char : non-printable" << std::endl;
-		
-	std::cout << "int : " << int_ << std::endl;
-	std::cout << "float : " << float_ << std::endl;
-	std::cout << "double : " << double_ << std::endl;
+	
+	if (double_ > std::numeric_limits<int>::max() || double_ < std::numeric_limits<int>::min())
+		std::cout << "int : overflow" << std::endl;
+	else
+		std::cout << "int : " << int_ << std::endl;
+	std::cout << "float : " << float_ << ".0f" << std::endl;
+	std::cout << "double : " << double_ << ".0" << std::endl;
 
 	return ;
 }

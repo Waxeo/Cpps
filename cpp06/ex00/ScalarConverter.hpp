@@ -20,7 +20,7 @@ class ScalarConverter
 
 		ScalarConverter( void );
 		ScalarConverter( ScalarConverter const &src );
-		~ScalarConverter( void );
+		virtual ~ScalarConverter( void ) = 0;
 		ScalarConverter	&	operator=( ScalarConverter const &rhs );
 	
 };

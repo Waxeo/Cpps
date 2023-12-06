@@ -2,10 +2,12 @@
 
 int main(int ac, char **av)
 {
-	(void)ac;
-	std::string test = av[1];
+	if (ac == 2)
+	{
+		std::string test = av[1];
 
-	ScalarConverter::convert(test);
+		ScalarConverter::convert(test);
+	}
 
 	return (0);
 }
