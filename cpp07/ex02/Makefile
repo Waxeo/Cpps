@@ -1,7 +1,7 @@
 # Variables
 
-NAME	=	iter
-PROJECT =	Cpp07 - Ex01
+NAME	=	Array
+PROJECT =	Cpp07 - Ex02
 CC		=	c++
 FLAG	=	-Wall -Wextra -Werror -std=c++98 -g3
 
@@ -34,7 +34,7 @@ $(OBJF)	:
 
 all		:	$(NAME)
 
-$(NAME)	:	$(FILES) iter.hpp ./Makefile
+$(NAME)	:	$(FILES) Array.hpp ./Makefile
 	$(CC) $(FLAG) $(FILES) -o $(NAME)
 	@echo "$(YELLOW)$(PROJECT) compiled!$(DEF_COLOR)"
 
