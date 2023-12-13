@@ -1,7 +1,7 @@
 # Variables
 
-NAME	=	Array
-PROJECT =	Cpp08 - Ex00
+NAME	=	Span
+PROJECT =	Cpp08 - Ex01
 CC		=	c++
 FLAG	=	-Wall -Wextra -Werror -std=c++98 -g3
 
@@ -23,7 +23,7 @@ WHITE		= \033[0;97m
 
 # Sources
 
-FILES	=	main.cpp
+FILES	=	main.cpp Span.cpp
 
 ###
 
@@ -34,7 +34,7 @@ $(OBJF)	:
 
 all		:	$(NAME)
 
-$(NAME)	:	$(FILES) easyfind.hpp ./Makefile
+$(NAME)	:	$(FILES) Span.hpp ./Makefile
 	$(CC) $(FLAG) $(FILES) -o $(NAME)
 	@echo "$(YELLOW)$(PROJECT) compiled!$(DEF_COLOR)"
 

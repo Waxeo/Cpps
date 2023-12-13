@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
+#include <iterator>
 #include <vector>
 #include <list>
 
@@ -30,7 +31,11 @@ void	easyfind(T Container, int to_find)
 	typename T::const_iterator  finder = std::find(Container.begin(), Container.end(), to_find);
 
 	if (finder != Container.end())
-		std::cout << "occurence find at index : " << *finder  << std::endl;
+	{
+		typename T::const_iterator  begin = Container.begin();
+
+		std::cout << "occurence find at index : " << std::distance(begin, finder)  << std::endl;
+	}
 	else
 		throw NoOccurenceFoundException();
 	return ;
