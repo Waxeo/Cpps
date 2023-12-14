@@ -33,6 +33,12 @@ class Span
 			public:
 				virtual const char* what() const throw();
 		};
+
+		class NoSpanException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 		
 	private:
 		unsigned int _N;

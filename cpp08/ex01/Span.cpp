@@ -32,41 +32,36 @@ void	Span::addNumber(int to_add)
 }
 
 int	Span::shortestSpan( void )
-{
-	std::vector<int>::const_iterator begin = this->_Array.begin();
-	std::vector<int>::const_iterator end = this->_Array.end();
-	int	shortest = std::distance(this->_Array.begin(), this->_Array.end());
+{	
+	if (this->_Array.size() < 2)
+		throw NoSpanException();
 
-	for (std::vector<int>::const_iterator it = begin; it < end; it++)
-	{
-		for (std::vector<int>::const_iterator it2 = it + 1; it2 < end; it2++)
-		{
-			if (std::distance(it, it2) < shortest)
-				shortest = std::distance(it, it2);
-		}
-	}
+	std::sort(this->_Array.begin(), this->_Array.end());
 
-	return shortest;
+	int span = this->_Array[1] - this->_Array[0];
+
+	for (unsigned long i = 1; i < this->_Array.size(); i++)
+		span = std::min(this->_Array[i] - this->_Array[i - 1], span);
+
+	return span;
 }
 
 int	Span::longestSpan( void )
 {
-	std::vector<int>::const_iterator begin = this->_Array.begin();
-	std::vector<int>::const_iterator end = this->_Array.end();
-	int	longest = this->_Array[0] - this->_Array[1];
+	if (this->_Array.size() < 2)
+		throw NoSpanException();
 
-	for (std::vector<int>::const_iterator it = begin; it < end; it++)
-	{
-		for (std::vector<int>::const_iterator it2 = it + 1; it2 < end; it2++)
-		{
-				longest = std::min(this->_Array[it2]);
-		}
-	}
+	std::sort(this->_Array.begin(), this->_Array.end());
 
-	return longest;
+	return this->_Array[this->_Array.size() - 1] - this->_Array[0];
 }
 
 const char* Span::SpanAlreadyFullException::what() const throw()
 {
 	return "Span size exceeded";
+}
+
+const char* Span::NoSpanException::what() const throw()
+{
+	return "This class contains less than 2 values.";
 }
