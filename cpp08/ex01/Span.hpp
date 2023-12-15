@@ -28,6 +28,8 @@ class Span
 		int	shortestSpan( void );
 		int	longestSpan( void );
 
+		void	addNumbers(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end, std::vector<int> numbers);
+
 		class SpanAlreadyFullException : public std::exception
 		{
 			public:

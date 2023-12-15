@@ -56,6 +56,16 @@ int	Span::longestSpan( void )
 	return this->_Array[this->_Array.size() - 1] - this->_Array[0];
 }
 
+void	Span::addNumbers(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end, std::vector<int> numbers)
+{
+	if (numbers.size() > this->_N)
+		throw SpanAlreadyFullException();
+	
+	this->_Array.insert(this->_Array.begin(), begin, end);
+
+	return ;
+}
+
 const char* Span::SpanAlreadyFullException::what() const throw()
 {
 	return "Span size exceeded";
