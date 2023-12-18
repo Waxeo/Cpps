@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <cstdlib>
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
@@ -58,7 +59,7 @@ Array<T>::Array( Array const &src ) : _N(src._N)
 {
 	// std::cout << "Array copy constructor called." << std::endl;
 
-	this->_Array = new T(this->_N);
+	this->_Array = new T[this->_N]();
 	
 	for (size_t i = 0; i < src._N; i++)
 		this->_Array[i] = src._Array[i];
@@ -85,7 +86,7 @@ Array<T>	&Array<T>::operator=( Array const &rhs )
 	if (this != &rhs)
 	{
 		this->_N = rhs._N;
-		this->_Array = new T(rhs._N);
+		this->_Array = new T[rhs._N]();
 	}
 	for (size_t i = 0; i < rhs._N; i++)
 		this->_Array[i] = rhs._Array[i];
