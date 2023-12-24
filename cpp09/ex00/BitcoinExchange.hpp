@@ -19,17 +19,20 @@ class BitcoinExchange
 {
 	public:
 		BitcoinExchange( void );
-		BitcoinExchange( BitcoinExchange const &src );
 		~BitcoinExchange( void );
 
+		void	extractAndExec(char *fdsName);
+		void	OutputManagement(std::string date, float value);
+
+	private:
+		BitcoinExchange( BitcoinExchange const &src );
 		BitcoinExchange	&	operator=( BitcoinExchange const &rhs );
 
 
+		std::map<std::string, float> _BitcoinData;
 
-	private:
-		std::map<char,int> _BitcoinData;
 
-}
+};
 
 
 

@@ -1,7 +1,7 @@
 # Variables
 
-NAME	=	Span
-PROJECT =	Cpp08 - Ex02
+NAME	=	btc
+PROJECT =	Cpp09 - Ex00
 CC		=	c++
 FLAG	=	-Wall -Wextra -Werror -std=c++98 -g3
 
