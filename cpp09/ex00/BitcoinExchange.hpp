@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <iterator>
 #include <map>
+#include <stdlib.h>
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
