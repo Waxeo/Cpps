@@ -20,13 +20,35 @@ class RPN
 {
 	public:
 
-        RPN( char **operation);
+        RPN( char *operation );
 		~RPN( void );
 
-        void plus(void);
-        void minus(void);
-        void mult(void);
-        void div(void);
+        void    stack_management( std::string to_add );
+        void    operation( std::string ope );
+
+        class Lessthan2numbersException : public std::exception
+		{
+    		public:
+       			virtual const char* what() const throw();
+		};
+
+        class NumbersleftinstackException : public std::exception
+		{
+    		public:
+       			virtual const char* what() const throw();
+		};
+        
+        class BadcharException : public std::exception
+		{
+    		public:
+       			virtual const char* what() const throw();
+		};
+        
+        class TwodigitnumberException : public std::exception
+		{
+    		public:
+       			virtual const char* what() const throw();
+		};
 
 
 	private:
@@ -40,7 +62,6 @@ class RPN
 
 
 };
-
 
 
 #endif

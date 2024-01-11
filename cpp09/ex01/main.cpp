@@ -2,11 +2,11 @@
 
 int main(int ac, char **av)
 {
-    if (ac >= 4)
+    if (ac == 2)
     {
         try
         {
-           RPN rpn(av);
+           RPN rpn(av[1]);
         }
         catch(const std::exception& e)
         {

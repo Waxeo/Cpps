@@ -1,57 +1,35 @@
 #include "RPN.hpp"
 
-//parsing 
-// verifier que il y'a bien 2 chiffres avant un premier operateur
-// verifier qu'une string ne contient bien que 1 element numerique ou operateur
-// verifier qu'il y'a bien au moins un operateur
-// ...
+void    RPN::stack_management(std::string to_add)
+{
+    if (to_add.size() != 1)
+        throw TwodigitnumberException();
+    if (to_add[0] >= '0' && to_add[0] <= '9')
+        this->_calcul.push(std::atoi(to_add.c_str()));
+    else
+        operation(to_add);
+}
 
-RPN::RPN( char **operation)
+RPN::RPN( char *operation )
 {
     int i = 1;
-    std::string input = operation[1];
+    std::string input = operation;
     size_t pos = 0;
     std::string token;
-    
-    while ((pos = input.find(' ')) != std::string::npos) {
-        token = input.substr(0, pos);
-        std::cout << token << std::endl;
-        input.erase(0, pos + 1);
-    }
 
-    // Affichage du dernier élément (après le dernier espace)
-    std::cout << input << std::endl;
-
-    while (operation[i])
+    while (pos != std::string::npos)
     {
-        if (operation[i][0] >= '0' && operation[i][0] <= '9')
-            this->_calcul.push(std::atoi(operation[i]));
-        else
+        pos = input.find(' ');
+        if (pos != std::string::npos) 
         {
-            switch (operation[i][0])
-            {
-                case '+':
-                    plus();
-                    break ;
-
-                case '-':
-                    minus();
-                    break ;
-
-                case '*':
-                    mult();
-                    break ;
-
-                case '/':
-                    div();
-                    break ;
-                default:
-                    std::cout << "This level does not exist" << std::endl;
-
-            }
+            token = input.substr(0, pos);
+            stack_management(token);
+            input.erase(0, pos + 1);
         }
         i++; 
     }
+
+    stack_management(input);
 
     int res = 0;
 
@@ -61,9 +39,7 @@ RPN::RPN( char **operation)
         _calcul.pop();
     }
     if (!_calcul.empty())
-    {
-        //exception
-    }
+        throw NumbersleftinstackException();
 
     std::cout << res << std::endl;
 }
@@ -74,10 +50,11 @@ RPN::~RPN( void )
     return ;
 }
 
-void    RPN::plus( void )
+void    RPN::operation( std::string ope )
 {
     int right = 0;
     int left = 0;
+    int res = 0;
 
     if (!_calcul.empty())
     {
@@ -85,9 +62,7 @@ void    RPN::plus( void )
         _calcul.pop();
     }
     else
-    {
-        //exception
-    }
+        throw Lessthan2numbersException();
     
     if (!_calcul.empty())
     {
@@ -95,101 +70,48 @@ void    RPN::plus( void )
         _calcul.pop();
     }
     else
-    {
-        //exception
-    }
+        throw Lessthan2numbersException();
     
-    int res = left + right;
+    switch (ope[0])
+    {
+        case '+':
+            res = left + right;
+            break ;
+
+        case '-':
+            res = left - right;
+            break ;
+
+        case '*':
+            res = left * right;
+            break ;
+
+        case '/':
+            res = left / right;
+            break ;
+        default:
+                throw BadcharException();
+    }
 
     _calcul.push(res);
 }
 
-void    RPN::minus( void )
+const char* RPN::Lessthan2numbersException::what() const throw()
 {
-    int right = 0;
-    int left = 0;
-    
-    if (!_calcul.empty())
-    {
-        right = _calcul.top();
-        _calcul.pop();
-    }
-    else
-    {
-        //exception
-    }
-    
-    if (!_calcul.empty())
-    {
-        left = _calcul.top();
-        _calcul.pop();
-    }
-    else
-    {
-        //exception
-    }
-    
-    int res = left - right;
-
-    _calcul.push(res);
+	return "Calcul is not possible because there are less than 2 numbers";
 }
 
-void    RPN::mult( void )
+const char* RPN::NumbersleftinstackException::what() const throw()
 {
-    int right = 0;
-    int left = 0;
-    
-    if (!_calcul.empty())
-    {
-        right = _calcul.top();
-        _calcul.pop();
-    }
-    else
-    {
-        //exception
-    }
-    
-    if (!_calcul.empty())
-    {
-        left = _calcul.top();
-        _calcul.pop();
-    }
-    else
-    {
-        //exception
-    }
-    
-    int res = left * right;
-
-    _calcul.push(res);
+	return "Stack still contains more than one number at the end of the calcul";
 }
 
-void    RPN::div( void )
+const char* RPN::BadcharException::what() const throw()
 {
-    int right = 0;
-    int left = 0;
-    
-    if (!_calcul.empty())
-    {
-        right = _calcul.top();
-        _calcul.pop();
-    }
-    else
-    {
-        //exception
-    }
-    
-    if (!_calcul.empty())
-    {
-        left = _calcul.top();
-        _calcul.pop();
-    }
-    else
-    {
-        //exception
-    }
-    
-    int res = left / right;
+	return "Char is not a number or an operator";
+}
 
-    _calcul.push(res);
+const char* RPN::TwodigitnumberException::what() const throw()
+{
+	return "Numbers must contain only one digit";
 }
