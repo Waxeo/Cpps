@@ -1,11 +1,5 @@
 #include "BitcoinExchange.hpp"
 
-// etapes a suivre en theorie :
-
-// recuperer dans le fichier transmit le date | multiplicateur en verifiant : validite de la date, et du multiplicateur
-// defiler le 2eme map pour associer les dates avec map premier et envoyer ca a l'affichage
-
-
 BitcoinExchange::BitcoinExchange( void )
 {
     //algo recuperation data.csv
@@ -219,11 +213,6 @@ void	BitcoinExchange::OutputManagement(std::string date, float value)
 
 	std::cout << date << " => " << value << " = " << value * it->second << std::endl;
 }
-
-
-
-
-
 
 
 /*	DEBUG
