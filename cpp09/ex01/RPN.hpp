@@ -58,11 +58,7 @@ class RPN
 		RPN( RPN const &src );
 		RPN	&	operator=( RPN const &rhs );
 
-
-		std::vector<int> _values;
 		std::stack<int, std::deque<int> > _calcul;
-
-
 };
 
 #endif
