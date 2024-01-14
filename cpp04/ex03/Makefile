@@ -1,7 +1,7 @@
 # Variables
 
-NAME	=	Abstrait
-PROJECT =	Cpp04 - Ex02
+NAME	=	Interface
+PROJECT =	Cpp04 - Ex03
 CC		=	c++
 FLAG	=	-Wall -Wextra -Werror -std=c++98 -g3
 
@@ -23,7 +23,7 @@ WHITE		= \033[0;97m
 
 # Sources
 
-FILES	=	main.cpp AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp
+FILES	=	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 ###
 
@@ -34,7 +34,7 @@ $(OBJF)	:
 
 all		:	$(NAME)
 
-$(NAME)	:	$(FILES) Cat.hpp Dog.hpp AAnimal.hpp Brain.hpp ./Makefile
+$(NAME)	:	$(FILES) AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp ./Makefile
 	@echo "\n"
 	$(CC) $(FLAG) $(FILES) -o $(NAME)
 	@echo "$(YELLOW)$(PROJECT) compiled!$(DEF_COLOR)"

@@ -7,10 +7,19 @@
 class MateriaSource : public IMateriaSource
 {
 	public:
-		virtual void learnMateria(AMateria*);
+
+		MateriaSource();
+		MateriaSource(const MateriaSource &src);
+		~MateriaSource();
+
+		MateriaSource &operator=(const MateriaSource &rhs);
+
+		virtual void learnMateria(AMateria*f);
 		virtual AMateria* createMateria(std::string const & type);
+
 	private:
-		AMateria *_learn[4];
+		AMateria *_learned[4];
+		int		_index;
 };
 
 #endif
