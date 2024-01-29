@@ -8,7 +8,7 @@ class Ice : public AMateria
 	public:
 		Ice();
 		Ice(Ice const &src);
-		~Ice();
+		virtual ~Ice();
 
 		Ice	&operator=(Ice const &rhs);
 

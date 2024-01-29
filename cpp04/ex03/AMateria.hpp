@@ -6,8 +6,18 @@
 #include <string>
 #include <fstream>
 #include <cmath>
-#include "AMateria.hpp"
-#include "ICharacter.hpp"
+
+# define BLACK    "\e[30m"
+# define RED    "\e[31m"
+# define GREEN    "\e[32m"
+# define YELLOW    "\e[33m"
+# define BLUE    "\e[34m"
+# define PURPLE    "\e[35m"
+# define CYAN    "\e[36m"
+# define WHITE    "\e[37m"
+# define RESET  "\e[0m"
+
+class ICharacter;
 
 class AMateria
 {
